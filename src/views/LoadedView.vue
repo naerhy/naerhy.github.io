@@ -4,7 +4,7 @@
 	import Card from "../components/Card.vue";
 
 	// @ts-ignore
-	const props = defineProps<{ projects: GithubProjects, topics: string[] }>();
+	const props = defineProps<{ projects: GithubProjects; topics: string[] }>();
 
 	const filter42 = ref(true);
 	const filterName = ref("");
@@ -60,9 +60,11 @@
 				</div>
 			</div>
 			<ul>
-				<Card v-for="(project, index) in projects" :project="project" v-show="visibleProjectsIndexes[index]"/>
+				<Card v-for="(project, index) in projects" :project="project" v-show="visibleProjectsIndexes[index]" />
 			</ul>
-			<p class="recap"><span>{{ nbVisibleProjects }}</span> result(s) for projects matching the current filters.</p>
+			<p class="recap">
+				<span>{{ nbVisibleProjects }}</span> result(s) for projects matching the current filters.
+			</p>
 		</div>
 	</section>
 </template>
@@ -93,7 +95,7 @@
 	.filters > div:nth-child(2) {
 		flex: 1 1 0%;
 	}
-	.filters input[type=text] {
+	.filters input[type="text"] {
 		background-color: var(--background);
 		border: 1px solid var(--stroke);
 		border-radius: 0.25rem;
@@ -101,10 +103,10 @@
 		padding: 0.5rem;
 		width: 100%;
 	}
-	.filters input[type=text]::placeholder {
+	.filters input[type="text"]::placeholder {
 		color: var(--text-subtle);
 	}
-	.filters input[type=text]:focus {
+	.filters input[type="text"]:focus {
 		outline: 2px solid var(--stroke);
 	}
 	.filters button {

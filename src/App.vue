@@ -5,7 +5,11 @@
 	import LoadedView from "./views/LoadedView.vue";
 	import ErrorView from "./views/ErrorView.vue";
 
-	enum View { Loading, Loaded, Error };
+	enum View {
+		Loading,
+		Loaded,
+		Error
+	}
 
 	const view = ref<View>(View.Loading);
 	const repos = ref<GithubProjects | null>(null);
@@ -21,7 +25,7 @@
 			}
 		}
 		return _topics.sort();
-	})
+	});
 
 	onMounted(async () => {
 		try {
@@ -64,7 +68,8 @@
 		margin: 1rem 0;
 	}
 
-	.loading, .error {
+	.loading,
+	.error {
 		align-items: center;
 		display: flex;
 		justify-content: center;
